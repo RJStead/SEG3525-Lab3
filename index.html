@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Walmart </title>
+	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<!-- Tab links, each one with an onclick event associated with it -->
+<div class="tab">
+  <div>
+	<button class="tablinks" onclick="openInfo(event, 'Client')">Diet</button>
+	<div id="Client" class="tabcontent">
+	  <h3>Help us serve you better!</h3>
+	  <h4>Check all dietary preferences that apply:<h4> <br>
+	  <div id="selectdiv">
+		Vegan
+		<input type="radio" name="vegetarian" value="Vegetarian" onchange="populateListProductChoices(this.value, 'displayProduct', true)">Yes 
+		<input type="radio" name="vegetarian" value="Vegetarian" onchange="populateListProductChoices(this.value, 'displayProduct', false)">No
+		<br>
+		No Gluten
+		<input type="radio" name="glutenFree" value="GlutenFree" onchange="populateListProductChoices(this.value, 'displayProduct', true)">Yes
+		<input type="radio" name="glutenFree" value="GlutenFree" onchange="populateListProductChoices(this.value, 'displayProduct', false)">No
+		<br>
+		Organic
+		<input type="radio" name="organic" value="Organic" onchange="populateListProductChoices(this.value, 'displayProduct', true)">Yes
+		<input type="radio" name="organic" value="Organic" onchange="populateListProductChoices(this.value, 'displayProduct', false)">No
+		<br>
+	  </div>
+	</div>
+  </div>
+  
+  <div>
+	  <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
+	  <div id="Products" class="tabcontent">
+	  <h3>Your targeted products</h3>
+	  <p>We preselected products based on your dietary preferences.</p>
+		 Choose items to buy:
+		 <! This code was inspired by https://www.w3schools.com/howto/howto_js_filter_elements.asp>
+		 <div id="buttonContainer"> 
+			<button class="btn active" onclick="filterSelection('all')">All</button>
+			<button class="btn" onclick="filterSelection('Veg')">Vegetable</button>
+			<button class="btn" onclick="filterSelection('Meat')">Meat</button>
+			<button class="btn" onclick="filterSelection('Meal')">Meal</button>
+		 </div>
+		 <button id="addCart" type="button" class="block" onclick="selectedItems()">
+			Update Cart
+		 </button>
+		 
+		 <div id="displayProduct"></div>
+	  </div>
+  </div>
+  <div>
+	  <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
+	  <div id="Cart" class="tabcontent">
+	  <h3 style="margin-top: 2%;">Your Shopping Cart</h3>
+	  <div id="displayCart"></div>
+  </div>
+  </div>
+</div>
+<h1>Welcome to Walmart!</h1>
+
+
+<div id="bottomBar">
+	<p>Site Web conçu par RJ Stead</p>
+</div>
+
+<script src="scripts/groceries.js"></script>
+<script src="scripts/main.js"></script>
+
+</body>
+</html>
